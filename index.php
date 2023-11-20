@@ -9,7 +9,7 @@ include 'includes/navbar.php';
 		<div class="col-12 banner1 d-flex align-items-center">
 			<div class="row p-5">
 				<div class="col-xl-8 col-lg-8 col-12 text-xl-start text-lg-start text-center">
-					<h1 class="text-white " style="font-size: calc( 1.5rem + 1.5rem) !important;">Himaya: Local Product Carrier and Trading System</h1><br>
+					<h1 class="text-white " style="font-size: calc( 1.5rem + 1.5rem) !important;">Himaya: Agricultural Product Carrier and Trading System</h1><br>
 					<a href="#categories" class="btn btn-danger">View Products</a>
 				</div>
 				
