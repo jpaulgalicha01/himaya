@@ -12,7 +12,7 @@
 
             $(document).on('submit','#login',function(e){
                 e.preventDefault(e);
-                var formData = new FormData(this);
+              ;  var formData = new FormData(this);
                 formData.append("acc_login", true);
                 // alert(formData);
                 $("#login_btn").html("<div class='text-center'><div class='spinner-border' role='status'><span class='visually-hidden'>Loading...</span></div></div>");
@@ -118,5 +118,6 @@
                             document.getElementById("otp_btn").disabled = false;
                         }
                     }
-                })
-            })
+                });
+            });
+
