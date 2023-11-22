@@ -18,7 +18,7 @@ include 'includes/header.php';
 	                Information Of Product
 	            </div>
 	            <div class="card-body">
-	            	<form action="inputConfig.php" method="POST">
+	            	<form action="inputConfig.php" method="POST" enctype="multipart/form-data">
 	            		<input type="hidden" name="function" value="add_product">
 	            		<label for="categories">Categories :</label>
 	            		<select id="categories" class="form-select" name="categories_product">

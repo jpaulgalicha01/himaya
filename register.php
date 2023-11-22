@@ -9,8 +9,11 @@ include 'includes/header.php';
                 <main>
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="card shadow-lg border-0 rounded-lg my-5">
+                            <div class="col-lg-8 my-5">
+                                <a href="index.php">
+                                    <img src="images/himaya-logo-circle.png" width="80" height="80" class="position-absolute top-0 start-50 translate-middle-x" style="z-index:9999">
+                                </a>
+                                <div class="card shadow-lg border-0 rounded-lg">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Registration Form</h3></div>
                                     <div class="card-body">
                                         <form id="create_acc" enctype="multipart/form-data">

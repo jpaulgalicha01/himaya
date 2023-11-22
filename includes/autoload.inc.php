@@ -1,4 +1,8 @@
 <?php
+date_default_timezone_set('Asia/Manila');
+
+$date = date('Y-m-d');
+
 spl_autoload_register("Autoload");
 function Autoload($classname){
     $path = "config/";
@@ -18,4 +22,10 @@ function secured($data){
     $data = str_replace("'","\'",$data);
     return $data;
 }
+
+
+
+// Checking Trade Product duration
+$checking_prod_dura = new fetch();
+$checking_prod_dura->checkingProdDura($date);
 ?>

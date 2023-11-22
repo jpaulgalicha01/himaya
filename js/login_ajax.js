@@ -98,7 +98,7 @@
                             });
                             Toast.fire({
                               icon: res.icon,
-                              title: "Log in successfully",
+                              title: "Log in Successfully",
                             }).then(()=>{
                                 window.location.href=res.redirect;
                             });
@@ -114,7 +114,7 @@
                               icon: res.icon,
                               title: res.message,
                             })
-                            $("#otp_btn").text("Subtmit OTP Code");
+                            $("#otp_btn").text("Submit OTP Code");
                             document.getElementById("otp_btn").disabled = false;
                         }
                     }

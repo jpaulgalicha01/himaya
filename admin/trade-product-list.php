@@ -26,7 +26,7 @@ include 'includes/header.php';
                         </select>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-12 pb-3 m-2">
-                        <label for="type_product">Status of Product :</label>
+                        <label for="product_status">Status of Product :</label>
                         <select class="form-select" id="product_status">
                             
                         </select>
@@ -119,7 +119,7 @@ include 'includes/header.php';
 
       $.ajax({
         type:"POST",
-        url: "fetchStatusProd.php",
+        url: "fetchStatusTradeProd.php",
         data:{value:value, function:"fetch_status"},
         success:function(response){
           $("#product_status").html(response);

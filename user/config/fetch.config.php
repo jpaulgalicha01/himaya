@@ -32,5 +32,59 @@ class fetch extends controller{
 		return false;
 	}
 
+	public function tradeAccept(){
+		$stmt = $this->trade_accept();
+		if($stmt->rowCount()){
+			echo $stmt->rowCount();
+		}else{
+			echo "0";
+		}
+	}
+
+	public function tradeDeclined(){
+		$stmt = $this->trade_declined();
+		if($stmt->rowCount()){
+			echo $stmt->rowCount();
+		}else{
+			echo "0";
+		}
+	}
+
+	public function tradePending(){
+		$stmt = $this->trade_pending();
+		if($stmt->rowCount()){
+			echo $stmt->rowCount();
+		}else{
+			echo "0";
+		}
+	}
+
+	public function carrierAccept(){
+		$stmt = $this->carrier_accept();
+		if($stmt->rowCount()){
+			echo $stmt->rowCount();
+		}else{
+			echo "0";
+		}
+	}
+
+	public function carrierDeclined(){
+		$stmt = $this->carrier_declined();
+		if($stmt->rowCount()){
+			echo $stmt->rowCount();
+		}else{
+			echo "0";
+		}
+	}
+
+	public function carrierPending(){
+		$stmt = $this->carrier_pending();
+		if($stmt->rowCount()){
+			echo $stmt->rowCount();
+		}else{
+			echo "0";
+		}
+	}
+
 }
 ?>

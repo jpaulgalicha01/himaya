@@ -9,7 +9,12 @@
                             <div class="sb-sidenav-menu-heading">User List</div>
                             <a class="nav-link" href="user-list.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user-alt"></i></div>
-                                Account User List
+                                Account User List <span class="badge text-bg-secondary" >
+                                    <?php
+                                        $count_user_accept = new fetch();
+                                        $count_user_accept->countUserPending();
+                                    ?>
+                                </span>
                             </a>
                             <div class="sb-sidenav-menu-heading">User Management</div>
                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">

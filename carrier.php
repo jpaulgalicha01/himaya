@@ -16,7 +16,7 @@ include 'includes/navbar.php';
 	    </div>
 	  </div>
 	  <div class="col-xl-10 col-lg-10 col-md-10 col-9">
-	    <div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example px-4" tabindex="0" style="height: auto; max-height:555px; width: auto; overflow-y: scroll;">
+	    <div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example px-4" tabindex="0" style="height: auto; max-height:555px; min-height:560px; width: auto; overflow-y: scroll;">
 	      <h5 id="trucks">*Trucks*</h5>
 	      	<div class="row">
 		      	<?php
@@ -28,7 +28,7 @@ include 'includes/navbar.php';
 			      				?>
 						      		<div class="col-xl-3 col-lg-3 col-md-4 col-12 py-xl-2 py-lg-2 py-md-3 py-3" style="cursor: pointer;">
 												<div class="card p-2 d-flex zoom">
-													<img src="uploads/<?=$row_trucks['product_image']?>" width="130" style="height:auto;min-height: 150px;"class="align-self-center">
+													<img data-src="uploads/<?=$row_trucks['product_image']?>" width="130" style="height:auto;min-height: 150px;"class="align-self-center lazy-load">
 													<hr>	
 													<div class="card-body">
 														<h5 class="card-title"><?=$row_trucks['product_name']?></h5>
@@ -53,7 +53,7 @@ include 'includes/navbar.php';
 			      				?>
 						      		<div class="col-xl-3 col-lg-3 col-md-4 col-12 py-xl-2 py-lg-2 py-md-3 py-3" style="cursor: pointer;">
 												<div class="card p-2 d-flex zoom">
-													<img src="uploads/<?=$row_vans['product_image']?>" width="130" style="height:auto;min-height: 150px;"class="align-self-center">
+													<img data-src="uploads/<?=$row_vans['product_image']?>" width="130" style="height:auto;min-height: 150px;"class="align-self-center lazy-load">
 													<hr>	
 													<div class="card-body">
 														<h5 class="card-title"><?=$row_vans['product_name']?></h5>
@@ -78,7 +78,7 @@ include 'includes/navbar.php';
 			      				?>
 						      		<div class="col-xl-3 col-lg-3 col-md-4 col-12 py-xl-2 py-lg-2 py-md-3 py-3" style="cursor: pointer;">
 												<div class="card p-2 d-flex zoom">
-													<img src="uploads/<?=$row['product_image']?>" width="130" style="height:auto;min-height: 150px;"class="align-self-center">
+													<img data-src="uploads/<?=$row['product_image']?>" width="130" style="height:auto;min-height: 150px;"class="align-self-center lazy-load">
 													<hr>	
 													<div class="card-body">
 														<h5 class="card-title"><?=$row['product_name']?></h5>
@@ -132,10 +132,22 @@ include 'includes/navbar.php';
 </div>
 
 <script>
+	$(function() {
+          $('.lazy-load').lazy({
+		        beforeLoad: function(element) {
+		            var imageSrc = element.data('src');
+		            console.log('image "' + imageSrc + '" is about to be loaded');
+		        },
+		        scrollDirection: 'vertical',
+		        effect: "fadeIn",
+		        effectTime: 1000,
+		        threshold: 0
+			    });
+    });
+
 	$(document).on("click","#prod_id",function(){
 		var prod_id = $(this).val();
 		// alert(prod_id);
-
 		$.ajax({
 			type:"POST",
 			url: "inputConfig.php",

@@ -9,7 +9,7 @@
 				</form>
 			</div>
 			<div class="col-xl-4 col-lg-4 col-md-4 col-6 text-xl-center text-lg-center text-md-center text-start">
-				<a href="index.php"><img src="images/himaya-logo.png" width="40%" style="height:100%; max-height:150px;"></a>	
+				<a href="index.php"><img src="images/himaya-logo.png" width="35%" style="height:100%; max-height:150px;"></a>	
 			</div>
 			<div class="col-xl-4 col-lg-4 col-md-4 col-6 d-flex justify-content-end  align-items-center">
 				<a href="login.php" class="btn btn-outline-none btn-lg"><i class="fa-regular fa-user"></i></a>
@@ -67,17 +67,17 @@
                             </a>
                             <br>
                         	<a href="trade.php" class="links"><span class="fs-6"><b>Trade</b></span></a>
-                            <a href="#" class="links">
+                            <a href="trade.php#vegetables" class="links">
                                 <div class="pt-2">
                                     <span>Vegetables</span><span class="float-end"><i class="fa-solid fa-greater-than"></i></span>
                                 </div>
                             </a>
-                            <a href="#" class="links">
+                            <a href="trade.php#poultry" class="links">
                                 <div class="pt-2">
                                     <span>Poultry</span><span class="float-end"><i class="fa-solid fa-greater-than"></i></span>
                                 </div>
                             </a>
-                            <a href="#" class="links">
+                            <a href="trade.php#other_items" class="links">
                                 <div class="pt-2">
                                     <span>Other Items</span><span class="float-end"><i class="fa-solid fa-greater-than"></i></span>
                                 </div>
@@ -107,9 +107,9 @@
 			                            </div>
 			                            <div class="col-3">
 				                            <span class="fw-bold links">Trade</span><br>
-				                            <a href="" class="m-1 links">Vegetables</a><br>
-				                            <a href="" class="m-1 links">Poultry</a><br>
-				                            <a href="" class="m-1 links">Other items</a><br>
+				                            <a href="trade.php#vegetables" class="m-1 links">Vegetables</a><br>
+				                            <a href="trade.php#poultry" class="m-1 links">Poultry</a><br>
+				                            <a href="trade.php#other_items" class="m-1 links">Other items</a><br>
 			                            </div>
                         			</div>
                         		</div>

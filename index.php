@@ -4,7 +4,7 @@ include 'includes/navbar.php';
 ?>
 
 <!-- Main Content -->
-<div class="container-fluid py-5">
+<div class="container-fluid py-3">
 	<div class="row">
 		<div class="col-12 banner1 d-flex align-items-center">
 			<div class="row p-5">
@@ -22,7 +22,7 @@ include 'includes/navbar.php';
 	</div>
 </div>
 
-<div class="container-fluid py-2 px-4">
+<div class="container-fluid px-4">
 	<div class="row">
 		<div class="border p-2">
 			<div class="col-12">
@@ -34,7 +34,7 @@ include 'includes/navbar.php';
 				  <div class="carousel-inner">
 
 				    <div class="carousel-item active">
-			    		<div class="row banner1 d-flex align-items-center p-5">
+			    		<div class="row banner-carrier d-flex align-items-center p-5">
 							<div class="row">
 								<div class="col-1">
 								</div>
@@ -51,7 +51,7 @@ include 'includes/navbar.php';
 	  			    </div>
 
 	  			    <div class="carousel-item">
-			    		<div class="row banner1 d-flex align-items-center p-5">
+			    		<div class="row banner-trading d-flex align-items-center p-5">
 							<div class="row">
 								<div class="col-1">
 								</div>

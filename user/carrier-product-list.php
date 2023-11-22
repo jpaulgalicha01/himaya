@@ -47,7 +47,7 @@ include 'includes/header.php';
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form action="inputConfig.php" method="POST">
-        <input type="hidden" name="funtion" value="update_avail_prod">
+        <input type="hidden" name="function" value="update_avail_prod">
         <input type="hidden" name="update_avail_prod_id" id="update_avail_prod_id">
             <div class="modal-body">
                 <label for="prod_avail_status">Availability Status:</label>
@@ -103,8 +103,8 @@ include 'includes/header.php';
                     console.log("There's Something Wrong to Fethcing Data");
                 }
             }
-        })
-    })
+        });
+    });
 </script>
 <?php
 include 'includes/footer.php';

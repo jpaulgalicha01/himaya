@@ -61,6 +61,7 @@ class controller extends db{
 		$stmt->execute(["Carrier","Trucks","Accept"]);
 		return $stmt;
 	}
+
 	protected function fetch_carrier_vans(){
 		$stmt = $this->connect()->prepare("SELECT * FROM `tbl_products` WHERE `product_categories`=? AND `product_type`=? AND `product_status`=? ");
 		$stmt->execute(["Carrier","Vans","Accept"]);
@@ -73,9 +74,32 @@ class controller extends db{
 		return $stmt;
 	}
 
+	protected function fetch_trade_vegetables(){
+		$stmt = $this->connect()->prepare("SELECT * FROM `tbl_products` WHERE `product_categories`=? AND `product_type`=? AND `product_status`=? ");
+		$stmt->execute(["Trade","Vegetables","Accept"]);
+		return $stmt;
+	}
+
+	protected function fetch_trade_poultry(){
+		$stmt = $this->connect()->prepare("SELECT * FROM `tbl_products` WHERE `product_categories`=? AND `product_type`=? AND `product_status`=? ");
+		$stmt->execute(["Trade","Poultry","Accept"]);
+		return $stmt;
+	}
+
+	protected function fetch_trade_other_items(){
+		$stmt = $this->connect()->prepare("SELECT * FROM `tbl_products` WHERE `product_categories`=? AND `product_type`=? AND `product_status`=? ");
+		$stmt->execute(["Trade","Other Items","Accept"]);
+		return $stmt;
+	}
 	protected function view_product($prod_id){
 		$stmt = $this->connect()->prepare("SELECT * FROM `tbl_products` WHERE `prod_id`=? ");
 		$stmt->execute([$prod_id]);
+		return $stmt;
+	}
+
+	protected function checking_prod_dura($date){
+		$stmt = $this->connect()->prepare("DELETE FROM `tbl_products` WHERE `product_categories`=? AND `trade_duration_date`=? AND `product_status`=? ");
+		$stmt->execute(["Trade",$date,"Accept"]);
 		return $stmt;
 	}
 }

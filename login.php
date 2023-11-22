@@ -3,15 +3,20 @@ include "config/security.php";
 include 'includes/autoload.inc.php';
 include 'includes/header.php';
 ?>
+
     <body class="bg-danger">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-lg-5">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                            <div class="col-lg-5 mt-5">
+                                    <a href="index.php">
+                                        <img src="images/himaya-logo-circle.png" width="80" height="80" class="position-absolute top-0 start-50 translate-middle-x" style="z-index:1">
+                                    </a>
+                                <div class="card shadow-lg border-0 rounded-lg">
+                                    <div class="card-header">
+                                        <h3 class="text-center font-weight-light my-4">Welcome Himamaylanon!</h3></div>
                                     <div class="card-body">
                                         <form id="login" >
                                             <input type="hidden" name="function" value="acc_login">
@@ -42,7 +47,7 @@ include 'includes/header.php';
                                             </div>
                                             <div class="d-flex align-items-center justify-content-end mt-4 mb-0">
                                                 
-                                                <button class="btn btn-dark" type="submit" id="otp_btn">Subtmit OTP Code</button>
+                                                <button class="btn btn-dark" type="submit" id="otp_btn">Submit OTP Code</button>
                                             </div>
                                         </form>
                                     </div>

@@ -11,6 +11,7 @@ if(isset($_GET['type_product']) && $_GET['function']=="fetching_trade_product"){
 	            <th>Product Name</th>
 	            <th>Product Type</th>
 	            <th>Status</th>
+	            <th>Availability</th>
 	            <th>Action</th>
 	        </tr>
 	    </thead>
@@ -33,10 +34,14 @@ if(isset($_GET['type_product']) && $_GET['function']=="fetching_trade_product"){
                     <td><small><?=$row['product_name']?></small></td>
                     <td><small><?=$row['product_type']?></small></td>
                     <td><small><?=$row['product_status']?></small></td>
+                    <td><small><?=$row['product_availability']?></small></td>
                     <td>
-                        <button type="button" class="btn btn-success btn-sm" id="view_product" value="<?=$row['prod_id']?>">
-                            <i class="fa-solid fa-eye"></i>
+                        <button type="button" class="btn btn-success btn-sm" id="update_avail" value="<?=$row['prod_id']?>">
+                            <i class="fa-solid fa-pen-to-square"></i>
                         </button>
+                        <a href="inputConfig.php?delete_prod=<?=$row['prod_id']?>" onclick="return alert('Are you sure to delete this?')" class="btn btn-danger btn-sm" id="view_product" value="<?=$row['prod_id']?>">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
                     </td>
 				</tr>
 			<?php

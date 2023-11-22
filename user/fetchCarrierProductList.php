@@ -39,9 +39,9 @@ if(isset($_GET['type_product']) && $_GET['function']=="fetching_carrier_product"
                         <button type="button" class="btn btn-success btn-sm" id="update_avail" value="<?=$row['prod_id']?>">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>
-                        <button type="button" class="btn btn-danger btn-sm" id="view_product" value="<?=$row['prod_id']?>">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </button>
+                        <a href="inputConfig.php?delete_prod=<?=$row['prod_id']?>" onclick="return alert('Are you sure to delete this?')" class="btn btn-danger btn-sm" id="view_product" value="<?=$row['prod_id']?>">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
                     </td>
 
 				</tr>

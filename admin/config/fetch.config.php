@@ -57,5 +57,85 @@ class fetch extends controller{
 			return false;
 		}
 	}
+
+	public function countUserAccept(){
+		$stmt = $this->count_user_accept();
+		if($stmt->rowCount()){
+			echo $stmt->rowCount();
+		}else{
+			echo "0";
+		}
+	}
+
+	public function countUserDecline(){
+		$stmt = $this->count_user_decline();
+		if($stmt->rowCount()){
+			echo $stmt->rowCount();
+		}else{
+			echo "0";
+		}
+	}
+
+	public function countUserPending(){
+		$stmt = $this->count_user_pending();
+		if($stmt->rowCount()){
+			echo $stmt->rowCount();
+		}else{
+			echo "0";
+		}
+	}
+
+	public function tradeAccept(){
+		$stmt = $this->trade_accept();
+		if($stmt->rowCount()){
+			echo $stmt->rowCount();
+		}else{
+			echo "0";
+		}
+	}
+
+	public function tradeDecline(){
+		$stmt = $this->trade_decline();
+		if($stmt->rowCount()){
+			echo $stmt->rowCount();
+		}else{
+			echo "0";
+		}
+	}
+	public function tradePending(){
+		$stmt = $this->trade_pending();
+		if($stmt->rowCount()){
+			echo $stmt->rowCount();
+		}else{
+			echo "0";
+		}
+	}
+
+	public function carrierAccept(){
+		$stmt = $this->carrier_accept();
+		if($stmt->rowCount()){
+			echo $stmt->rowCount();
+		}else{
+			echo "0";
+		}
+	}
+
+	public function carrierDecline(){
+		$stmt = $this->carrier_decline();
+		if($stmt->rowCount()){
+			echo $stmt->rowCount();
+		}else{
+			echo "0";
+		}
+	}
+	public function carrierPending(){
+		$stmt = $this->carrier_pending();
+		if($stmt->rowCount()){
+			echo $stmt->rowCount();
+		}else{
+			echo "0";
+		}
+	}
+
 }
 ?>

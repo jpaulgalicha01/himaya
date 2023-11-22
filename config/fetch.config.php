@@ -163,6 +163,21 @@ class fetch extends controller{
 		return $stmt;
 	}
 
+	public function fetchTradeVegetables(){
+		$stmt = $this->fetch_trade_vegetables();
+		return $stmt;
+	}
+
+	public function fetchTradePoultry(){
+		$stmt = $this->fetch_trade_poultry();
+		return $stmt;
+	}
+
+	public function fetchTradeOtherItems(){
+		$stmt = $this->fetch_trade_other_items();
+		return $stmt;
+	}
+
 	public function viewProduct($prod_id){
 		$stmt = $this->view_product($prod_id);
 
@@ -179,5 +194,11 @@ class fetch extends controller{
 			return false;
 		}
 	}
+
+	public function checkingProdDura($date){
+		$stmt = $this->checking_prod_dura($date);
+		return $stmt;
+	}
+
 }
 ?>
