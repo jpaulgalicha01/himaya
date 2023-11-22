@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2023 at 06:41 PM
+-- Generation Time: Nov 22, 2023 at 05:48 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -50,7 +50,7 @@ CREATE TABLE `tbl_accounts` (
 --
 
 INSERT INTO `tbl_accounts` (`acc_id`, `acc_rand_id`, `acc_fname`, `acc_mname`, `acc_lname`, `acc_address`, `acc_birth`, `acc_phone`, `acc_email`, `acc_uname`, `acc_password`, `acc_profile`, `acc_type`, `acc_status`, `acc_otp`) VALUES
-(22, '1668125060', 'admin', 'admin', 'admin', NULL, NULL, NULL, 'admin@admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', NULL, 'admin', NULL, '99352');
+(22, '1668125060', 'admin', 'admin', 'admin', 'Brgy. Binicuil Kabankalan City, Neg. Occ', '2023-12-31', '09948487917', 'jpaulgalicha01@gmail.com', 'admin', '7815696ecbf1c96e6894b779456d330e', 'default-img.png', 'admin', NULL, '59164');
 
 -- --------------------------------------------------------
 
@@ -99,13 +99,13 @@ ALTER TABLE `tbl_products`
 -- AUTO_INCREMENT for table `tbl_accounts`
 --
 ALTER TABLE `tbl_accounts`
-  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `tbl_products`
 --
 ALTER TABLE `tbl_products`
-  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

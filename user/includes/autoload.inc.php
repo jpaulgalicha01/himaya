@@ -42,5 +42,11 @@ if($res_fetch_admin->rowCount()){
 	$user_uname = $fetch_info_admin['acc_uname'];
 }
 
-
-
+// Checking user if have random id
+$checking_id = new fetch();
+$res_checking_id = $checking_id->checkingId();
+if($res_checking_id->rowCount()!==1){
+	setcookie("user_id",NULL, time()-3600, '/himaya');
+	setcookie("user_type",NULL, time()-3600, '/himaya');
+	ob_end_flush(header("Location: ../login.php"));
+}

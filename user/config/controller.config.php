@@ -301,5 +301,12 @@ class controller extends db{
 			}
 		}
 	}
+
+
+	protected function checking_id(){
+		$stmt = $this->connect()->prepare("SELECT * FROM `tbl_accounts` WHERE `acc_rand_id`=? ");
+		$stmt->execute([$_COOKIE['user_id']]);
+		return $stmt;
+	}
 }
 ?>

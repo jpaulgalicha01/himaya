@@ -86,5 +86,10 @@ class fetch extends controller{
 		}
 	}
 
+	public function checkingId(){
+		$stmt = $this->checking_id();
+		return $stmt;
+	}
+
 }
 ?>
