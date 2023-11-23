@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2023 at 05:48 PM
+-- Generation Time: Nov 23, 2023 at 04:06 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -50,7 +50,20 @@ CREATE TABLE `tbl_accounts` (
 --
 
 INSERT INTO `tbl_accounts` (`acc_id`, `acc_rand_id`, `acc_fname`, `acc_mname`, `acc_lname`, `acc_address`, `acc_birth`, `acc_phone`, `acc_email`, `acc_uname`, `acc_password`, `acc_profile`, `acc_type`, `acc_status`, `acc_otp`) VALUES
-(22, '1668125060', 'admin', 'admin', 'admin', 'Brgy. Binicuil Kabankalan City, Neg. Occ', '2023-12-31', '09948487917', 'jpaulgalicha01@gmail.com', 'admin', '7815696ecbf1c96e6894b779456d330e', 'default-img.png', 'admin', NULL, '59164');
+(22, '1668125060', 'admin', 'admin', 'admin', 'Brgy. Binicuil Kabankalan City, Neg. Occ', '2023-12-31', '09948487917', 'jpaulgalicha01@gmail.com', 'admin', '7815696ecbf1c96e6894b779456d330e', 'default-img.png', 'admin', NULL, '291854');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_logs`
+--
+
+CREATE TABLE `tbl_logs` (
+  `logs_id` int(11) NOT NULL,
+  `logs_user_id` text DEFAULT NULL,
+  `logs_activity` text DEFAULT NULL,
+  `logs_date` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -86,6 +99,12 @@ ALTER TABLE `tbl_accounts`
   ADD PRIMARY KEY (`acc_id`);
 
 --
+-- Indexes for table `tbl_logs`
+--
+ALTER TABLE `tbl_logs`
+  ADD PRIMARY KEY (`logs_id`);
+
+--
 -- Indexes for table `tbl_products`
 --
 ALTER TABLE `tbl_products`
@@ -99,13 +118,19 @@ ALTER TABLE `tbl_products`
 -- AUTO_INCREMENT for table `tbl_accounts`
 --
 ALTER TABLE `tbl_accounts`
-  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+
+--
+-- AUTO_INCREMENT for table `tbl_logs`
+--
+ALTER TABLE `tbl_logs`
+  MODIFY `logs_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_products`
 --
 ALTER TABLE `tbl_products`
-  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

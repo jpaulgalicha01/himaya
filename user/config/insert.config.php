@@ -35,6 +35,11 @@ class insert extends controller{
 		}
 
 	}
+
+	public function logoutUser(){
+		$stmt = $this->logout_user();
+		return $stmt;
+	}
 		
 }
 ?>

@@ -5,6 +5,31 @@
 </div>
 
 </body>
+<script type="text/javascript">
+	$(document).ready(function(){
+        $("#search_prod").keyup(function(){
+            var search_prod = $(this).val();
+            // alert(search_prod);
+            $.ajax({
+                method:"POST",
+                url:"fetchProduct.php",
+                data:{search_prod:search_prod, function:"search_prod"},
+                success:function(response){
+                    if(search_prod !==""){
+                        $("#search-bar").css("visibility","visible");
+                        $("#search_prod_list").html(response);
+
+                    }else{
+                        $("#search-bar").css("visibility","hidden");
+                    }
+                }
+            })
+            
+        });
+        $("#search_prod").trigger("keyup");
+    });
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script src="js/scripts.js" defer></script>
 <script src="js/main.js" defer></script>

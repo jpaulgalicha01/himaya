@@ -2,7 +2,7 @@
 class fetch extends controller{
 	public function accLogin($acc_uname,$acc_pass){
 		$stmt = $this->acc_login($acc_uname,$acc_pass);
-		if($stmt->rowCount()==1){
+		if($stmt){
 			// Valid Credentials
 			$fetch = $stmt->fetch();
 			switch ($fetch['acc_type']) {
@@ -197,6 +197,11 @@ class fetch extends controller{
 
 	public function checkingProdDura($date){
 		$stmt = $this->checking_prod_dura($date);
+		return $stmt;
+	}
+
+	public function fetchProd($value){
+		$stmt = $this->fetch_prod($value);
 		return $stmt;
 	}
 

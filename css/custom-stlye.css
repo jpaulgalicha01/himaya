@@ -166,4 +166,13 @@ a.links:hover{
     background-size:cover; min-height: 500px;
 }
 
-
+#search-bar{
+    position: absolute;
+    background-color: #fcfcfc;
+    width: 27.3%;
+    height: auto;
+    max-height: 30%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2;
+    visibility: hidden ;
+}

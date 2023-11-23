@@ -137,5 +137,10 @@ class fetch extends controller{
 		}
 	}
 
+	public function fetchActivity($date_start,$date_end){
+		$stmt = $this->fetch_activity($date_start,$date_end);
+		return $stmt;
+	}
+
 }
 ?>

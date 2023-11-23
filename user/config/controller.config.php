@@ -33,6 +33,9 @@ class controller extends db{
 
 				move_uploaded_file($_FILES["product_image"]["tmp_name"], $target_file);
 
+				//Insert Activity Logs 
+				$this->connect()->query("INSERT INTO `tbl_logs` (`logs_user_id`, `logs_activity`, `logs_date`) VALUES('".$_COOKIE['user_id']."','Adding Product Name: $carrier_product_name','".date('Y-m-d')."')");
+
 				$status = 1;
 				return $status;
 	        }else{
@@ -41,6 +44,9 @@ class controller extends db{
 
 				move_uploaded_file($_FILES['product_image']['tmp_name'], $target_file);
 				
+				//Insert Activity Logs 
+				$this->connect()->query("INSERT INTO `tbl_logs` (`logs_user_id`, `logs_activity`, `logs_date`) VALUES('".$_COOKIE['user_id']."','Adding Product Name: $trade_product_name','".date('Y-m-d')."')");
+
 				$status = 1;
 				return $status;
 	        }
@@ -117,15 +123,32 @@ class controller extends db{
 			$update_avail_status = $this->connect()->prepare("UPDATE `tbl_products` SET `product_availability`=? WHERE `prod_id`=? AND `prod_post_user_id`=? ");
 			$update_avail_status->execute([$prod_avail_status,$update_avail_prod_id,$fetch_info_user['acc_rand_id']]);
 
+			$fetch_product = $this->connect()->query("SELECT * FROM `tbl_products` WHERE `prod_id`='$update_avail_prod_id' AND `prod_post_user_id`='".$fetch_info_user['acc_rand_id']."' ");
+			if($fetch_product->rowCount()==1){
+				$fetch = $fetch_product->fetch();
+
+				//Insert Activity Logs 
+				$this->connect()->query("INSERT INTO `tbl_logs` (`logs_user_id`, `logs_activity`, `logs_date`) VALUES('".$_COOKIE['user_id']."','Product Name: ".$fetch['product_name']." Updated Status to: $prod_avail_status','".date('Y-m-d')."')");
+			}
+
 			return $update_avail_status;
 
 		}
 	}
 
 	protected function delete_prod($delete_prod_id){
-		$stmt = $this->connect()->prepare("DELETE FROM `tbl_products` WHERE  `prod_id`=? ");
-		$stmt->execute([$delete_prod_id]);
-		return $stmt;
+		$fetch_product = $this->connect()->query("SELECT * FROM `tbl_products` WHERE `prod_id`='$delete_prod_id' AND `prod_post_user_id`='".$_COOKIE['user_id']."' ");
+		if($fetch_product->rowCount()==1){
+			$fetch = $fetch_product->fetch();
+
+			//Insert Activity Logs 
+			$this->connect()->query("INSERT INTO `tbl_logs` (`logs_user_id`, `logs_activity`, `logs_date`) VALUES('".$_COOKIE['user_id']."','Product Name: ".$fetch['product_name']." Deleted Products','".date('Y-m-d')."')");
+		
+			$stmt = $this->connect()->prepare("DELETE FROM `tbl_products` WHERE  `prod_id`=? ");
+			$stmt->execute([$delete_prod_id]);
+			return $stmt;
+		}
+
 	}
 
 	protected function trade_accept(){
@@ -223,7 +246,10 @@ class controller extends db{
 		$stmt->execute([$change_img,$_COOKIE['user_id']]);
 		if($stmt){
 			move_uploaded_file($_FILES["change_img"]["tmp_name"], $target_file);
-			
+
+			//Insert Activity Logs 
+			$this->connect()->query("INSERT INTO `tbl_logs` (`logs_user_id`, `logs_activity`, `logs_date`) VALUES('".$_COOKIE['user_id']."','Update Profile Image','".date('Y-m-d')."')");
+
 			$status = 1;
 			return $status;
 		}else{
@@ -282,6 +308,10 @@ class controller extends db{
 				$update_info = $this->connect()->prepare("UPDATE `tbl_accounts` SET `acc_fname`=?, `acc_mname`=?, `acc_lname`=?, `acc_address`=?, `acc_birth`=?, `acc_phone`=?, `acc_email`=?, `acc_uname`=?,`acc_password`=? WHERE `acc_rand_id`=? ");
 				$update_info->execute([$acc_fname,$acc_mname,$acc_lname,$acc_address,$acc_birth,$acc_phone,$acc_email,$acc_uname,md5($new_pass),$_COOKIE['user_id']]);
 				if($update_info){
+
+					//Insert Activity Logs 
+					$this->connect()->query("INSERT INTO `tbl_logs` (`logs_user_id`, `logs_activity`, `logs_date`) VALUES('".$_COOKIE['user_id']."','Changed Password','".date('Y-m-d')."')");
+
 					$status = 1;
 					return $status;
 				}else{
@@ -293,6 +323,8 @@ class controller extends db{
 			$update_info = $this->connect()->prepare("UPDATE `tbl_accounts` SET `acc_fname`=?, `acc_mname`=?, `acc_lname`=?, `acc_address`=?, `acc_birth`=?, `acc_phone`=?, `acc_email`=?, `acc_uname`=? WHERE `acc_rand_id`=? ");
 			$update_info->execute([$acc_fname,$acc_mname,$acc_lname,$acc_address,$acc_birth,$acc_phone,$acc_email,$acc_uname,$_COOKIE['user_id']]);
 			if($update_info){
+				//Insert Activity Logs 
+					$this->connect()->query("INSERT INTO `tbl_logs` (`logs_user_id`, `logs_activity`, `logs_date`) VALUES('".$_COOKIE['user_id']."','Update Personal Information','".date('Y-m-d')."')");
 				$status = 1;
 				return $status;
 			}else{
@@ -307,6 +339,19 @@ class controller extends db{
 		$stmt = $this->connect()->prepare("SELECT * FROM `tbl_accounts` WHERE `acc_rand_id`=? ");
 		$stmt->execute([$_COOKIE['user_id']]);
 		return $stmt;
+	}
+
+	protected function fetch_activity($date_start,$date_end){
+		$stmt = $this->connect()->prepare("SELECT * FROM `tbl_logs` WHERE `logs_user_id`=? AND `logs_date` BETWEEN ? AND ? ORDER BY `logs_date` ");
+		$stmt->execute([$_COOKIE['user_id'], $date_start, $date_end]);
+
+		return $stmt;
+	}
+
+	protected function logout_user(){
+
+		$logout_activity = $this->connect()->query("INSERT INTO `tbl_logs` (`logs_user_id`, `logs_activity`, `logs_date`) VALUES('".$_COOKIE['user_id']."','Logout','".date('Y-m-d')."')");
+		return $logout_activity;
 	}
 }
 ?>

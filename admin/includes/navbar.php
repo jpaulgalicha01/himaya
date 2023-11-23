@@ -28,7 +28,7 @@
                                     <a class="nav-link" href="trade-product-list.php">Trade Products</a>
                                 </nav>
                             </div>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="activity-logs.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-desktop"></i></div>
                                 Activity Logs
                             </a>

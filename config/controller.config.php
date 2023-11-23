@@ -41,10 +41,14 @@ class controller extends db{
 		$stmt = $this->connect()->prepare("SELECT * FROM `tbl_accounts` WHERE `acc_uname`=? AND `acc_password`=? ");
 		$stmt->execute([$acc_uname,md5($acc_pass)]);
 
-		if($stmt){
+		if($stmt->rowCount()==1){
+			$fetch_info = $stmt->fetch();
 			$this->connect()->query("UPDATE `tbl_accounts` SET `acc_otp`='".rand(000000,999999)."' WHERE `acc_uname`='$acc_uname' AND `acc_password`='".md5($acc_pass)."' ");
 			$fetch = $this->connect()->prepare("SELECT * FROM `tbl_accounts` WHERE `acc_uname`=? AND `acc_password`=? ");
 			$fetch->execute([$acc_uname,md5($acc_pass)]);
+
+			//Insert Activity Logs 
+			$this->connect()->query("INSERT INTO `tbl_logs` (`logs_user_id`, `logs_activity`, `logs_date`) VALUES('".$fetch_info['acc_rand_id']."','Requesting OTP Code','".date('Y-m-d')."')");
 
 			return $fetch;
 		}
@@ -53,6 +57,9 @@ class controller extends db{
 	protected function verify_otp($user_id,$otp_code){
 		$stmt = $this->connect()->prepare("SELECT * FROM `tbl_accounts` WHERE `acc_rand_id`=? AND `acc_otp`=? ");
 		$stmt->execute([$user_id,$otp_code]);
+
+		//Insert Activity Logs 
+		$this->connect()->query("INSERT INTO `tbl_logs` (`logs_user_id`, `logs_activity`, `logs_date`) VALUES('$user_id','Submit OTP Code','".date('Y-m-d')."')");
 		return $stmt;
 	}
 
@@ -100,6 +107,12 @@ class controller extends db{
 	protected function checking_prod_dura($date){
 		$stmt = $this->connect()->prepare("DELETE FROM `tbl_products` WHERE `product_categories`=? AND `trade_duration_date`=? AND `product_status`=? ");
 		$stmt->execute(["Trade",$date,"Accept"]);
+		return $stmt;
+	}
+
+	protected function fetch_prod($value){
+		$stmt = $this->connect()->prepare("SELECT * FROM `tbl_products` WHERE  `product_categories` LIKE ? AND `product_status`=? OR  `product_type` LIKE ? AND `product_status`=?");
+		$stmt->execute(["%".$value."%","Accept","%".$value."%","Accept"]);
 		return $stmt;
 	}
 }

@@ -47,7 +47,7 @@ if(isset($_GET['type_product']) && $_GET['function']=="fetching_trade_product"){
 			<?php
 		}
 	}else{
-		echo"<tr><td colspan='6' class='text-center'>No Data Found</td></tr>";
+		echo"<tr><td colspan='7' class='text-center'>No Data Found</td></tr>";
 	}
 	?>
 		</tbody>

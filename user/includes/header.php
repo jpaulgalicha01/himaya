@@ -12,6 +12,13 @@
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!-- Date Range -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+        
         <style type="text/css">
             .loaded-wrapper{
                 width: 100%;
@@ -83,6 +90,28 @@
                 font-size: 1rem;
                 font-weight: bold;
                 text-align: justify;
+            }
+
+            .print-title{
+                display: none;
+            }
+
+            @media print {
+                body {
+                    visibility: hidden;
+                }
+                .print-title{
+                    display: block;
+                }
+                .printableTable {
+                    visibility: visible;
+                }
+
+                .printableTable{
+                    position: absolute;
+                    top: 0%;
+                    left: 0%;
+                }
             }
                 
         </style>
