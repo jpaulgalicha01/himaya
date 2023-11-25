@@ -33,7 +33,7 @@ include 'includes/header.php';
                                                 <label class="form-check-label" for="showPass">Show Password</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small links" href="password.html">Forgot Password?</a>
+                                                <a class="small links" href="forgot-password.php">Forgot Password?</a>
                                                 <button class="btn btn-dark" type="submit" id="login_btn">Login</button>
                                             </div>
                                         </form>

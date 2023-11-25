@@ -38,6 +38,23 @@ if($_SERVER['REQUEST_METHOD'] == "POST" || $_SERVER['REQUEST_METHOD'] == "GET"){
 
         $view_product = new fetch();
         $view_product->viewProduct($prod_id);
+    }elseif(isset($_POST['reset_pass']) && secured($_POST['function'] == "reset_pass")){
+        $email = secured($_POST['email']);
+
+        $reset_pass = new update();
+        $reset_pass->resetPass($email);
+    }elseif(isset($_POST['submit_otp']) && secured($_POST['function'] == "submit_otp_reset_pass")){
+        $user_id = secured($_POST['user_id']);
+        $otp_code = secured($_POST['otp_code']);
+
+        $submit_otp = new fetch();
+        $submit_otp->submitOtp($user_id,$otp_code);
+    }elseif(isset($_POST['change_pass']) && secured($_POST['function'] == "change_pass")){
+        $user_id_new_pass = secured($_POST['user_id_new_pass']);
+        $new_pass = secured($_POST['npass']);
+
+        $change_pass = new update();
+        $change_pass->changePass($user_id_new_pass,$new_pass);
     }else{  
         ob_end_flush(header("Location: login.php"));
     }

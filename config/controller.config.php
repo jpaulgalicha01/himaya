@@ -43,14 +43,18 @@ class controller extends db{
 
 		if($stmt->rowCount()==1){
 			$fetch_info = $stmt->fetch();
-			$this->connect()->query("UPDATE `tbl_accounts` SET `acc_otp`='".rand(000000,999999)."' WHERE `acc_uname`='$acc_uname' AND `acc_password`='".md5($acc_pass)."' ");
-			$fetch = $this->connect()->prepare("SELECT * FROM `tbl_accounts` WHERE `acc_uname`=? AND `acc_password`=? ");
-			$fetch->execute([$acc_uname,md5($acc_pass)]);
+			$sent_otp = $this->connect()->prepare("UPDATE `tbl_accounts` SET `acc_otp`=? WHERE `acc_uname`=? AND `acc_password`=? ");
+			$sent_otp->execute([rand(000000,999999),$acc_uname,md5($acc_pass)]);
 
+			if($sent_otp){
 			//Insert Activity Logs 
 			$this->connect()->query("INSERT INTO `tbl_logs` (`logs_user_id`, `logs_activity`, `logs_date`) VALUES('".$fetch_info['acc_rand_id']."','Requesting OTP Code','".date('Y-m-d')."')");
 
+			$fetch = $this->connect()->prepare("SELECT * FROM `tbl_accounts` WHERE `acc_uname`=? AND `acc_password`=? ");
+			$fetch->execute([$acc_uname,md5($acc_pass)]);
 			return $fetch;
+			}
+
 		}
 	}
 
@@ -119,6 +123,39 @@ class controller extends db{
 	protected function fetch_img($img_rand_id){
 		$stmt = $this->connect()->prepare("SELECT * FROM `tbl_products_img` WHERE `img_prod_id`=? ");
 		$stmt->execute([$img_rand_id]);
+		return $stmt;
+	}
+
+	protected function reset_pass($email){
+		$stmt = $this->connect()->prepare("SELECT * FROM `tbl_accounts` WHERE `acc_email`=? ");
+		$stmt->execute([$email]);
+		if($stmt->rowCount()){
+			$fetch_info = $stmt->fetch();
+
+			$sent_otp = $this->connect()->prepare("UPDATE `tbl_accounts` SET `acc_otp`=? WHERE `acc_rand_id`=?");
+			$sent_otp->execute([rand(000000,999999),$fetch_info['acc_rand_id']]);
+			if($sent_otp){
+
+				//Insert Activity Logs 
+				$this->connect()->query("INSERT INTO `tbl_logs` (`logs_user_id`, `logs_activity`, `logs_date`) VALUES('".$fetch_info['acc_rand_id']."','Requesting OTP Code','".date('Y-m-d')."')");
+
+				$fetch = $this->connect()->prepare("SELECT * FROM `tbl_accounts` WHERE `acc_rand_id`=? ");
+				$fetch->execute([$fetch_info['acc_rand_id']]);
+				return $fetch;
+			}
+		}
+	}
+
+	protected function submit_otp($user_id,$otp_code){
+		$stmt = $this->connect()->prepare("SELECT * FROM `tbl_accounts` WHERE `acc_rand_id`=? AND `acc_otp`=? ");
+		$stmt->execute([$user_id,$otp_code]);
+		return $stmt;
+	}
+
+	protected function change_pass($user_id_new_pass,$new_pass){
+		$stmt = $this->connect()->prepare("UPDATE `tbl_accounts` SET `acc_password`=? WHERE `acc_rand_id`=? ");
+		$stmt->execute([md5($new_pass), $user_id_new_pass]);
+
 		return $stmt;
 	}
 }

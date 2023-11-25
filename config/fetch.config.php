@@ -198,5 +198,29 @@ class fetch extends controller{
 		return $stmt;
 	}
 
+	public function submitOtp($user_id,$otp_code){
+		$stmt = $this->submit_otp($user_id,$otp_code);
+
+		if($stmt->rowCount()==1){
+			$fetch = $stmt->fetch();
+			
+			$data = [
+				'status' => 200,
+				'data' => $fetch
+			];
+			echo json_encode($data);
+			return false;
+		}else{
+			// Not Valid OTP CODE
+			$data = [
+				'status' => 302,
+				'icon' => 'error',
+				'message' => "Invalid OTP Code",
+			];
+			echo json_encode($data);
+			return false;
+		}
+	}
+
 }
 ?>
