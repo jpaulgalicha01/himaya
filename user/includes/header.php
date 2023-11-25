@@ -20,72 +20,6 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
         
         <style type="text/css">
-            .loaded-wrapper{
-                width: 100%;
-                height: 100%;
-                background: #212529;
-                position: absolute;
-                top: 0;
-                left: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                z-index: 99999999;
-            }
-            .loader {
-              width: 48px;
-              height: 48px;
-              border-radius: 50%;
-              display: inline-block;
-              position: relative;
-              border: 3px solid;
-              border-color: #FFF #FFF transparent transparent;
-              box-sizing: border-box;
-              animation: rotation 1s linear infinite;
-            }
-            .loader::after,
-            .loader::before {
-              content: '';  
-              box-sizing: border-box;
-              position: absolute;
-              left: 0;
-              right: 0;
-              top: 0;
-              bottom: 0;
-              margin: auto;
-              border: 3px solid;
-              border-color: transparent transparent #DC3545 #DC3545;
-              width: 40px;
-              height: 40px;
-              border-radius: 50%;
-              box-sizing: border-box;
-              animation: rotationBack 0.5s linear infinite;
-              transform-origin: center center;
-            }
-            .loader::before {
-              width: 32px;
-              height: 32px;
-              border-color: #FFF #FFF transparent transparent;
-              animation: rotation 1.5s linear infinite;
-            }
-                
-            @keyframes rotation {
-              0% {
-                transform: rotate(0deg);
-              }
-              100% {
-                transform: rotate(360deg);
-              }
-            } 
-            @keyframes rotationBack {
-              0% {
-                transform: rotate(0deg);
-              }
-              100% {
-                transform: rotate(-360deg);
-              }
-            }
-
             .view-user-modal{
                 font-size: 1rem;
                 font-weight: bold;
@@ -116,10 +50,8 @@
                 
         </style>
     </head>
-    <div class="loaded-wrapper" id="loader">
-        <div class="loader"></div>
-    </div>
     <body class="sb-nav-fixed">
+
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="../index.php">

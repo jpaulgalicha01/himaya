@@ -41,8 +41,8 @@ class update extends controller{
 		}
 	}
 
-	public function updateInfo($acc_fname,$acc_mname,$acc_lname,$acc_address,$acc_birth,$acc_phone,$acc_email,$acc_uname,$curr_pass,$new_pass){
-		$stmt = $this->update_info($acc_fname,$acc_mname,$acc_lname,$acc_address,$acc_birth,$acc_phone,$acc_email,$acc_uname,$curr_pass,$new_pass);
+	public function updateInfo($acc_fname,$acc_mname,$acc_lname,$acc_birth,$acc_phone,$acc_email,$acc_uname,$curr_pass,$new_pass){
+		$stmt = $this->update_info($acc_fname,$acc_mname,$acc_lname,$acc_birth,$acc_phone,$acc_email,$acc_uname,$curr_pass,$new_pass);
 
 		if(!$stmt){
 			$_SESSION['alert'] = "Show";

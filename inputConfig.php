@@ -9,7 +9,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST" || $_SERVER['REQUEST_METHOD'] == "GET"){
         $acc_mname = secured($_POST['acc_mname']);
         $acc_lname = secured($_POST['acc_lname']);
         $acc_lname = secured($_POST['acc_lname']);
-        $acc_address = secured($_POST['acc_address']);
+        $street = secured($_POST['street']);
+        $brgy = secured($_POST['brgy']);
+        $acc_address = $street.", Brgy. ".$brgy.", Himamaylan City";
         $acc_birth = secured($_POST['acc_birth']);
         $acc_phone = secured($_POST['acc_phone']);
         $acc_email = secured($_POST['acc_email']);

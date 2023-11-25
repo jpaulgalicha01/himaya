@@ -3,23 +3,20 @@
 	<div class="container-fluid py-3 px-4">
 		<div class="row d-flex align-items-center py-3">
 			<div class="col-xl-4 col-lg-4 col-md-4 col-0 d-xl-block d-lg-block d-md-block d-none px-0">
-				<form  action="inputConfig.php" method="POST">
 					<div class="form-goup d-flex">
 						<div class="col-10">
-								<input type="text" name="user_name_get_ser" id="search_prod" class="form-control rounded" placeholder="Search the name ex.(Juan..)">
+								<input type="text" name="user_name_get_ser" id="search_prod" class="form-control rounded" placeholder="Search the name ex.(Trucks, Vans, and etc..)">
                         <div class="card rounded " id="search-bar">
                             <div style="overflow-y: auto;" id="search_prod_list">
                               
                             </div>
                         </div>
 						</div>
-                		<div class="col-2">
-                			<button class="btn btn-outline-none" type="submit" name="search"><i class="fa-solid fa-magnifying-glass"></i></button>
-                		</div>
+                		
 					</div>
 					
 			</div>
-				</form>
+				
 
 			<div class="col-xl-4 col-lg-4 col-md-4 col-6 text-xl-center text-lg-center text-md-center text-start">
 				<a href="index.php"><img src="images/himaya-logo.png" width="35%" style="height:100%; max-height:150px;"></a>	

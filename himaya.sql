@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2023 at 04:06 PM
+-- Generation Time: Nov 25, 2023 at 01:14 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -50,7 +50,7 @@ CREATE TABLE `tbl_accounts` (
 --
 
 INSERT INTO `tbl_accounts` (`acc_id`, `acc_rand_id`, `acc_fname`, `acc_mname`, `acc_lname`, `acc_address`, `acc_birth`, `acc_phone`, `acc_email`, `acc_uname`, `acc_password`, `acc_profile`, `acc_type`, `acc_status`, `acc_otp`) VALUES
-(22, '1668125060', 'admin', 'admin', 'admin', 'Brgy. Binicuil Kabankalan City, Neg. Occ', '2023-12-31', '09948487917', 'jpaulgalicha01@gmail.com', 'admin', '7815696ecbf1c96e6894b779456d330e', 'default-img.png', 'admin', NULL, '291854');
+(22, '1668125060', 'admin', 'admin', 'admin', 'Brgy. Binicuil Kabankalan City, Neg. Occ', '2023-12-31', '09948487917', 'jpaulgalicha01@gmail.com', 'admin', '7815696ecbf1c96e6894b779456d330e', 'default-img.png', 'admin', NULL, '678130');
 
 -- --------------------------------------------------------
 
@@ -73,6 +73,7 @@ CREATE TABLE `tbl_logs` (
 
 CREATE TABLE `tbl_products` (
   `prod_id` int(11) NOT NULL,
+  `prod_rand_id` text DEFAULT NULL,
   `prod_post_user_id` text DEFAULT NULL,
   `product_post_name` text DEFAULT NULL,
   `product_categories` text DEFAULT NULL,
@@ -86,6 +87,18 @@ CREATE TABLE `tbl_products` (
   `trade_duration_date` text DEFAULT NULL,
   `product_availability` text DEFAULT NULL,
   `product_status` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_products_img`
+--
+
+CREATE TABLE `tbl_products_img` (
+  `img_id` int(11) NOT NULL,
+  `img_prod_id` text DEFAULT NULL,
+  `img_name` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -111,6 +124,12 @@ ALTER TABLE `tbl_products`
   ADD PRIMARY KEY (`prod_id`);
 
 --
+-- Indexes for table `tbl_products_img`
+--
+ALTER TABLE `tbl_products_img`
+  ADD PRIMARY KEY (`img_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -118,7 +137,7 @@ ALTER TABLE `tbl_products`
 -- AUTO_INCREMENT for table `tbl_accounts`
 --
 ALTER TABLE `tbl_accounts`
-  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `tbl_logs`
@@ -131,6 +150,12 @@ ALTER TABLE `tbl_logs`
 --
 ALTER TABLE `tbl_products`
   MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_products_img`
+--
+ALTER TABLE `tbl_products_img`
+  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

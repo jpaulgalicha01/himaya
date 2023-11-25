@@ -144,8 +144,8 @@ class controller extends db{
 			//Insert Activity Logs 
 			$this->connect()->query("INSERT INTO `tbl_logs` (`logs_user_id`, `logs_activity`, `logs_date`) VALUES('".$_COOKIE['user_id']."','Product Name: ".$fetch['product_name']." Status: $status_prod Owner: ".$fetch['product_post_name']." ','".date('Y-m-d')."')");
 
-			$stmt = $this->connect()->prepare("UPDATE `tbl_products` SET `product_status`=? WHERE `prod_id`=? ");
-			$stmt->execute([$status_prod,$prod_id]);
+			$stmt = $this->connect()->prepare("UPDATE `tbl_products` SET `product_status`=?, `product_availability`=? WHERE `prod_id`=? ");
+			$stmt->execute([$status_prod,"Available",$prod_id]);
 			return $stmt;
 		}
 		

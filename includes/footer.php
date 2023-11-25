@@ -27,6 +27,10 @@
             
         });
         $("#search_prod").trigger("keyup");
+
+        $(document).on('click','.row',function(){
+          $("#search-bar").css("visibility","hidden");
+        })
     });
 </script>
 

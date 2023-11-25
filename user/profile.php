@@ -52,7 +52,7 @@ include 'includes/header.php';
                             </div>
                         </div>
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="address" name="acc_address" type="text" placeholder="Address" value="<?=$user_address?>" required/>
+                            <input class="form-control" id="address" type="text" placeholder="Address" value="<?=$user_address?>" disabled/>
                             <label for="address">Address</label>
                         </div>
                         <div class="form-floating mb-3">
@@ -60,7 +60,7 @@ include 'includes/header.php';
                             <label for="birth">Birthdate</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="phonenum" type="tel" name="acc_phone" placeholder="Phone Number"  pattern="{0-9}[11]" value="<?=$user_phone?>" required/>
+                            <input class="form-control" id="phoneNumber" name="acc_phone" placeholder="Phone Number"   value="<?=$user_phone?>" required/>
                             <label for="phonenum">Phone Number</label>
                         </div>
                         <div class="form-floating mb-3">
@@ -91,7 +91,8 @@ include 'includes/header.php';
 	$(document).on('click','#change_prof_btn',function(){
 		$("#change_prof_btn").addClass("d-none");
 		$("#change_prof").removeClass("d-none");
-	})
+	});
+    
 </script>
 <?php
 include 'includes/footer.php';

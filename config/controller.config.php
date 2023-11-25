@@ -19,7 +19,7 @@ class controller extends db{
 	        }
 
 	        $insert_data = $this->connect()->prepare("INSERT INTO `tbl_accounts`(`acc_rand_id`, `acc_fname`, `acc_mname`, `acc_lname`,`acc_address`, `acc_birth`,`acc_phone`, `acc_email`, `acc_uname`, `acc_password`,`acc_profile`, `acc_type`,`acc_status`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
-			$insert_data->execute([rand(),$acc_fname,$acc_mname,$acc_lname,$acc_address,$acc_birth,$acc_phone,$acc_email,$acc_uname,md5($acc_pass),$acc_img,"user","Pending"]);
+			$insert_data->execute([rand(),$acc_fname,$acc_mname,$acc_lname,$acc_address,$acc_birth,"09".$acc_phone,$acc_email,$acc_uname,md5($acc_pass),$acc_img,"user","Pending"]);
 
 			if($insert_data){
 				move_uploaded_file($_FILES["acc_img"]["tmp_name"], $target_file);
@@ -113,6 +113,12 @@ class controller extends db{
 	protected function fetch_prod($value){
 		$stmt = $this->connect()->prepare("SELECT * FROM `tbl_products` WHERE  `product_categories` LIKE ? AND `product_status`=? OR  `product_type` LIKE ? AND `product_status`=?");
 		$stmt->execute(["%".$value."%","Accept","%".$value."%","Accept"]);
+		return $stmt;
+	}
+
+	protected function fetch_img($img_rand_id){
+		$stmt = $this->connect()->prepare("SELECT * FROM `tbl_products_img` WHERE `img_prod_id`=? ");
+		$stmt->execute([$img_rand_id]);
 		return $stmt;
 	}
 }

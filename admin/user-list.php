@@ -109,7 +109,7 @@ include 'includes/header.php';
                     <h5>Personal Information</h5>
                     <label for="full_name">Name: </label>
                     <p class="mb-1 view-user-modal" id="full_name"></p>
-                    <label for="address">Address: </label>
+                    <label for="address">Barangay: </label>
                     <p class="mb-1 view-user-modal" id="address"></p>
                     <label for="birthdate">Birth of Date: </label>
                     <p class="mb-1 view-user-modal" id="birthdate"></p>

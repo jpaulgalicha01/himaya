@@ -27,7 +27,5 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
-$(window).on("load",function(){
-   $("#loader").fadeOut("slow");
-})
+
 

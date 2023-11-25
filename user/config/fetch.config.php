@@ -96,6 +96,11 @@ class fetch extends controller{
 		return $stmt;
 	}
 
+	public function fetchImg($value){
+		$stmt = $this->fetch_img($value);
+		return $stmt;
+	}
+
 
 }
 ?>

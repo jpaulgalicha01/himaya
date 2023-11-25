@@ -26,8 +26,12 @@ include 'includes/header.php';
 	            			<option>Trade</option>
 	            		</select>
 	            		<div class="py-2">
-						  <label for="formFile" class="form-label">Image of Product:</label>
+						  <label for="formFile" class="form-label">Product Banner:</label>
 						  <input class="form-control" type="file" name="product_image" id="formFile" accept=".jpg, .jpeg, .png" required>
+	            		</div>
+	            		<div class="py-2">
+						  <label for="formFile" class="form-label">Product Images <small class="fst-italic">(select 2 or more pic.)</small>:</label>
+						  <input class="form-control" type="file" name="product_images[]" multiple id="formFile" accept=".jpg, .jpeg, .png" required>
 	            		</div>
 	            		<div id="carrier">
 	            			<div class="py-2">
@@ -46,14 +50,6 @@ include 'includes/header.php';
 	            			<div class="py-2">
 	            				<label>Capacity:</label>
 	            				<input type="text" name="carrier_cap" id="carrier_cap" class="form-control" placeholder="lbs/Kgs." required />
-	            			</div>
-	            			<div class="py-2">
-	            				<label>Address:</label>
-	            				<input type="text" name="carrier_product_address" id="carrier_address" class="form-control" placeholder="(purok/street, Barangay, city/municipality, province)" required />
-	            			</div>
-	            			<div class="py-2">
-	            				<label>Phone Number:</label>
-	            				<input type="tel" name="carrier_product_contact" id="carrier_phone" class="form-control" pattern="[0-9]{11}" placeholder="09xxxxxxxxx" required />
 	            			</div>
 	            		</div>
 	            		<div id="trade">
@@ -77,14 +73,6 @@ include 'includes/header.php';
 	            			<div class="py-2">
 	            				<label>Duration of Product:</label>
 	            				<input type="date" name="trade_duration_date" id="trade_duration_date" class="form-control">
-	            			</div>
-	            			<div class="py-2">
-	            				<label>Address:</label>
-	            				<input type="text" name="trade_product_address" id="trade_address" class="form-control" placeholder="(purok/street, Barangay, city/municipality, province)">
-	            			</div>
-	            			<div class="py-2">
-	            				<label>Phone Number:</label>
-	            				<input type="tel" name="trade_product_contact" id="trade_phone" class="form-control" pattern="[0-9]{11}" placeholder="09xxxxxxxxx">
 	            			</div>
 	            		</div>
 	            		 <button class="btn btn-success btn-sm" type="submit" name="add_product">Submit</button>

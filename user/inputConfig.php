@@ -11,20 +11,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST" || $_SERVER['REQUEST_METHOD'] == "GET" )
 
 		//carrier 
 		$carrier_product_name = secured($_POST['carrier_product_name']);	
-		$carrier_product_address = secured($_POST['carrier_product_address']);
-		$carrier_product_contact = secured($_POST['carrier_product_contact']);
 		$carrier_cap = secured($_POST['carrier_cap']);
 
 
 		// Trade
 		$trade_product_name = secured($_POST['trade_product_name']);	
-		$trade_product_address = secured($_POST['trade_product_address']);
-		$trade_product_contact = secured($_POST['trade_product_contact']);
 		$trade_expected_trade = secured($_POST['trade_expected_trade']);
 		$trade_duration_date = secured($_POST['trade_duration_date']);
 
 		$add_product = new insert();
-		$add_product->addProduct($categories_product, $product_image, $product_type,$carrier_product_name,$carrier_product_address,$carrier_product_contact, $carrier_cap ,$trade_product_name, $trade_product_address,$trade_product_contact, $trade_expected_trade, $trade_duration_date);
+		$add_product->addProduct($categories_product, $product_image, $product_type,$carrier_product_name, $carrier_cap ,$trade_product_name, $trade_expected_trade, $trade_duration_date);
 	}elseif(isset($_POST['value']) && $_POST['function']=="fetch_avail_product"){
 		$fetch_avail_product_id = secured($_POST['value']);
 
@@ -51,7 +47,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST" || $_SERVER['REQUEST_METHOD'] == "GET" )
         $acc_mname = secured($_POST['acc_mname']);
         $acc_lname = secured($_POST['acc_lname']);
         $acc_lname = secured($_POST['acc_lname']);
-        $acc_address = secured($_POST['acc_address']);
         $acc_birth = secured($_POST['acc_birth']);
         $acc_phone = secured($_POST['acc_phone']);
         $acc_email = secured($_POST['acc_email']);
@@ -60,7 +55,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST" || $_SERVER['REQUEST_METHOD'] == "GET" )
         $new_pass = secured($_POST['new_pass']);
 
         $update_info = new update();
-        $update_info->updateInfo($acc_fname,$acc_mname,$acc_lname,$acc_address,$acc_birth,$acc_phone,$acc_email,$acc_uname,$curr_pass,$new_pass);
+        $update_info->updateInfo($acc_fname,$acc_mname,$acc_lname,$acc_birth,$acc_phone,$acc_email,$acc_uname,$curr_pass,$new_pass);
+	}elseif(isset($_REQUEST['delete_prod_img'])){
+		$delete_img_id = $_REQUEST['delete_prod_img'];
+
+		$delete_img = new delete();
+		$delete_img->deleteImg($delete_img_id); 
+	}elseif(isset($_POST['add_img_prod']) && secured($_POST['function'] == "add_img_prod")){
+		$prod_rand_id = secured($_POST['prod_img_id']);
+
+		$insert_prod_img = new insert();
+		$insert_prod_img->insertProdImg($prod_rand_id);
 	}else{
 		ob_end_flush(header("Location: index.php"));
 	}

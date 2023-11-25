@@ -24,36 +24,70 @@ include 'includes/header.php';
                                               <input class="form-control" type="file" id="formFile" name="acc_img" accept=".png, .jpg, .jpeg, .svg" required/>
                                             </div>
                                             <div class="row d-flex py-2">
-                                                <div class="col-xl-4 col-lg4 col-12">
+                                                <div class="col-xl-4 col-lg-4 col-12">
                                                     <div class="form-floating mb-3">
                                                         <input class="form-control" id="fnmae" name="acc_fname" type="text" placeholder="First Name" required/>
                                                         <label for="fnmae">First Name</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-4 col-lg4 col-12">
+                                                <div class="col-xl-4 col-lg-4 col-12">
                                                     <div class="form-floating mb-3">
                                                         <input class="form-control" id="mname" name="acc_mname" type="text" placeholder="Middle Name" required/>
                                                         <label for="mname">Middle Name</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-4 col-lg4 col-12">
+                                                <div class="col-xl-4 col-lg-4 col-12">
                                                     <div class="form-floating mb-3">
                                                         <input class="form-control" id="lname" name="acc_lname" type="text" placeholder="Last Name" />
                                                         <label for="lname">Last Name</label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="address" name="acc_address" type="text" placeholder="Address" required/>
-                                                <label for="address">Address</label>
+                                            <div class="row d-flex py-2">
+                                                <div class="col-xl-4 col-lg-4 col-12">
+                                                    <div class="form-floating mb-3">
+                                                       <input class="form-control" id="lname" name="street" type="text" placeholder="Street Address" />
+                                                        <label for="lname">Street Address</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-8 col-lg-8 col-12">
+                                                    <div class="form-floating mb-3">
+                                                       <select class="form-select" id="address" name="brgy" required>
+                                                           <option selected disabled value="">---Please Select---</option>
+                                                            <option>Aguisan</option>
+                                                            <option>Buenavista</option>
+                                                            <option>Cabadiangan</option>
+                                                            <option>Cabanbanan</option>
+                                                            <option>Carabalan</option>
+                                                            <option>Caradio-an</option>
+                                                            <option>Libacao</option>
+                                                            <option>Mambagaton</option>
+                                                            <option>Nabali-an</option>
+                                                            <option>Mahalang</option>
+                                                            <option>San Antonio</option>
+                                                            <option>Sara-et</option>
+                                                            <option>Su-ay</option>
+                                                            <option>Talaban</option>
+                                                            <option>To-oy</option>
+                                                            <option value="I (Poblacion)">Barangay I (Poblacion)</option>
+                                                            <option value="II (Poblacion)">Barangay II (Poblacion)</option>
+                                                            <option value="III (Poblacion)">Barangay III (Poblacion)</option>
+                                                            <option value="IV (Poblacion)">Barangay IV (Poblacion)</option>
+                                                       </select>
+                                                       <label for="address">Barangay</label>
+                                                    </div>
+                                                </div>
+                                                
+                                                 
                                             </div>
+                                            
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="birth" type="date" name="acc_birth" placeholder="Birthdate" required/>
                                                 <label for="birth">Birthdate</label>
                                             </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="phonenum" type="tel" name="acc_phone" placeholder="Phone Number"  pattern="{0-9}[11]" required/>
-                                                <label for="phonenum">Phone Number</label>
+                                            <div class="input-group mb-3">
+                                              <span class="input-group-text bg-light">09</span>
+                                              <input type="tel" class="form-control" name="acc_phone" placeholder="Phone Number" pattern="[0-9]{9}">
                                             </div>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="email" name="acc_email" type="email" placeholder="Email Address" required/>

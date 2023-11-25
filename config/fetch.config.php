@@ -180,19 +180,7 @@ class fetch extends controller{
 
 	public function viewProduct($prod_id){
 		$stmt = $this->view_product($prod_id);
-
-		if($stmt){
-			$row = $stmt->fetch();
-
-			$data = [
-				'status' =>200,
-				'data' => $row
-			];
-			echo json_encode($data);
-			return false;
-		}else{
-			return false;
-		}
+		return $stmt;
 	}
 
 	public function checkingProdDura($date){
@@ -202,6 +190,11 @@ class fetch extends controller{
 
 	public function fetchProd($value){
 		$stmt = $this->fetch_prod($value);
+		return $stmt;
+	}
+
+	public function fetchImg($img_rand_id){
+		$stmt = $this->fetch_img($img_rand_id);
 		return $stmt;
 	}
 

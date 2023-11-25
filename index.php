@@ -40,8 +40,8 @@ include 'includes/navbar.php';
 								</div>
 								<div class="col-10">
 									<div class="text-center">
-										<h1 class="text-white" style="font-size: calc( 1rem + 1rem) !important;">Carrier</h1><br>
-										<a href="carrier.php" class="btn btn-danger btn-sm">View</a>
+										<h1 class="text-white" style="font-size: calc( 1rem + 1rem) !important;">Carrier</h1>
+										<a href="carrier.php" class="btn btn-danger">View</a>
 									</div>
 								</div>
 								<div class="col-1">
