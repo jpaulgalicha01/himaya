@@ -222,12 +222,11 @@ class controller extends db{
 			
 			//Insert Activity Logs 
 			$this->connect()->query("INSERT INTO `tbl_logs` (`logs_user_id`, `logs_activity`, `logs_date`) VALUES('".$_COOKIE['user_id']."','Update Profile Image','".date('Y-m-d')."')");
-			return $status;
-		}else{
-			
-			$status_message = "There's something wrong to add data. Please try again";
-			return $status_message;
+			return 1;
 		}
+			
+		$status_message = "There's something wrong to add data. Please try again";
+		return $status_message;
 	}
 
 	protected function update_info($acc_fname,$acc_mname,$acc_lname,$acc_address,$acc_birth,$acc_phone,$acc_email,$acc_uname,$curr_pass,$new_pass){

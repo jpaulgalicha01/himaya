@@ -156,6 +156,8 @@ class controller extends db{
 		$stmt = $this->connect()->prepare("UPDATE `tbl_accounts` SET `acc_password`=? WHERE `acc_rand_id`=? ");
 		$stmt->execute([md5($new_pass), $user_id_new_pass]);
 
+		//Insert Activity Logs 
+		$this->connect()->query("INSERT INTO `tbl_logs` (`logs_user_id`, `logs_activity`, `logs_date`) VALUES('user_id_new_pass','Requesting OTP Code','".date('Y-m-d')."')");
 		return $stmt;
 	}
 }
